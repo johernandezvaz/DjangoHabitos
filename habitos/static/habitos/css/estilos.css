@@ -1,0 +1,154 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f8ff;
+    margin: 20px;
+}
+
+form {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 400px;
+    margin: auto;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+.btn-azul {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.btn-azul:hover {
+    background-color: #0056b3;
+}
+
+.btn-verde {
+    background-color: #1bb906;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.btn-verde:hover {
+    background-color: #209603;
+}
+
+.btn1-naranja {
+    background-color: #d37203;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.btn1-naranja:hover {
+    background-color: #b35702;
+}
+
+.btn2-amarillo {
+    background-color: #e4c517;
+    color: rgb(243, 243, 248);
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.btn2-amarillo:hover {
+    background-color: #ebd61e;
+}
+
+.btn3-rojo {
+    background-color: #e90000;
+    color: rgb(243, 243, 248);
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.btn3-rojo:hover {
+    background-color: #d40000;
+}
+
+.titulo-centrado {
+    text-align: center;
+}
+
+.helptext {
+    display: block;
+    font-size: 0.9em;
+    color: #6c757d; 
+    margin-top: 4px;
+}
+
+
+.calendario {
+    width: 100%;
+    max-width: 600px;
+    border-collapse: collapse;
+    margin: 2rem auto;
+    font-family: Arial, sans-serif;
+}
+
+.calendario th, .calendario td {
+    border: 1px solid #ddd;
+    width: 14.28%;
+    height: 80px;
+    text-align: center;
+    vertical-align: middle;
+    padding: 0.5rem;
+}
+
+.calendario th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+.calendario td.cumplido {
+    background-color: #c8f7c5; 
+    font-weight: bold;
+    color: #2e7d32;
+}
+
+.calendario td.vacio {
+    background-color: #f9f9f9;
+}
+
+.celda-clickable {
+  display: block;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  padding: 10px;
+  box-sizing: border-box;
+  text-align: center;
+  vertical-align: middle;
+}
+
+

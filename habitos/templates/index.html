@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Bienvenido</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e0f7fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            text-align: center;
+        }
+        h1 {
+            margin-bottom: 1rem;
+        }
+        a.logout-button, a.form-button {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.5rem 1rem;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+        }
+        a.logout-button {
+            background-color: #ff5252;
+        }
+        a.logout-button:hover {
+            background-color: #c62828;
+        }
+        a.form-button {
+            background-color: #26a69a;
+            margin-right: 1rem;
+        }
+        a.form-button:hover {
+            background-color: #00796b;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    {% if user.is_authenticated %}
+        <h1>¡Hola, {{ user.username }}!</h1>
+        <p>Has iniciado sesión correctamente.</p>
+        <a class="form-button" href="{% url 'formulario' %}">Ir al formulario</a>
+        <a class="logout-button" href="{% url 'logout' %}">Cerrar sesión</a>
+    {% else %}
+        <h1>Bienvenido</h1>
+        <p>No has iniciado sesión. <a href="{% url 'login' %}">Inicia sesión aquí</a></p>
+    {% endif %}
+</div>
+</body>
+</html>

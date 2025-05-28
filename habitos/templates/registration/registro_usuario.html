@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Registro de Usuario{% endblock %}
+
+{% block content %}
+<div class="login-container">
+    <form method="post">
+        <h2 class="text-center">Crear una cuenta</h2>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Registrarse</button>
+    </form>
+</div>
+{% endblock %}

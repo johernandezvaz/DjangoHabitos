@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-4">
+    <h2>Recordatorios para "{{ habito.nombre }}"</h2>
+    <button class="btn-azul" onclick="window.location.href='{% url 'crear_recordatorio' habito.id %}'">Crear Recordatorio</button>
+    
+    {% if recordatorios %}
+    <ul class="list-group mt-3">
+        {% for recordatorio in recordatorios %}
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            <div>
+                <strong>{{ recordatorio.hora|time:"H:i" }}</strong> - {{ recordatorio.mensaje }}
+            </div>
+            <div>
+                <button class="btn2-amarillo btn-sm" onclick="window.location.href='{% url 'editar_recordatorio' recordatorio.id %}'">Editar</button>
+                <button class="btn3-rojo btn-sm" onclick="window.location.href='{% url 'eliminar_recordatorio' recordatorio.id %}'">Eliminar</button>
+                <form action="{% url 'enviar_recordatorio' habito.id %}" method="post" style="display:inline;">
+                    {% csrf_token %}
+                    <button type="submit">Enviar recordatorio por correo</button>
+                </form>
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p>No hay recordatorios aún.</p>
+    {% endif %}
+    
+    <button class="btn1-naranja mt-3" onclick="window.location.href='{% url 'lista_habitos' %}'">Volver a hábitos</button>
+</div>
+{% endblock %}

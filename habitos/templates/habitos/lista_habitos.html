@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2 class="titulo-centrado">Mis Hábitos</h2>
+    
+    {% if habitos %}
+    <ul class="list-group mt-3">
+        {% for habito in habitos %}
+        <li class="list-group-item d-flex align-items-center">
+            
+            <div>
+                <strong>{{ habito.nombre }}</strong><br>
+                <small>{{ habito.descripcion }}</small><br>
+                <small class="text-muted">Creado el {{ habito.fecha_creacion|date:"d M Y H:i" }}</small><br>
+                
+                {% if habito.progreso %}
+                <small class="text-success">Progreso: {{ habito.progreso.porcentaje_cumplimiento }}%</small><br>
+                {% endif %}
+
+                {% if habito.recordatorios.all %}
+                <small class="text-info">Recordatorios:</small>
+                <ul>
+                    {% for recordatorio in habito.recordatorios.all %}
+                    <li>{{ recordatorio.hora|time:"H:i" }} - {{ recordatorio.mensaje }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+                
+                <button class="btn-verde mt-2" onclick="window.location.href='{% url 'detalle_habito' habito.id %}'">Ver seguimiento</button>
+                <button class="btn2-amarillo mt-2" onclick="window.location.href='{% url 'editar_habito' habito.id %}'">Editar</button>
+                <button class="btn3-rojo mt-2" onclick="window.location.href='{% url 'eliminar_habito' habito.id %}'">Eliminar</button>
+                <button class="btn-azul mt-2" onclick="window.location.href='{% url 'ver_recordatorio' habito.id %}'">Recordatorios</button>
+
+            </div>
+            {% if habito.icono %}
+                <img src="{{ habito.icono.imagen.url }}" alt="{{ habito.icono.nombre }}" width="120" height="120">
+            {% endif %}
+        </li>
+        
+            {% endfor %}
+        </ul>
+        <button class="btn-azul mt-3" onclick="window.location.href='{% url 'crear_habito' %}'">Crear hábito</button>
+        <button class="btn1-naranja mt-2" onclick="window.location.href='{% url 'crear_icono' %}'">Crear icono</button>
+    {% else %}
+        <p>No has registrado ningún hábito aún.</p>
+        <button class="btn-azul" onclick="window.location.href='{% url 'crear_habito' %}'">Crear hábito</button>
+        <button class="btn1-naranja mt-2" onclick="window.location.href='{% url 'crear_icono' %}'">Crear icono</button>
+    {% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <title>Formulario de Hábito</title>
+    <link rel="stylesheet" href="{% static 'habitos/css/estilos.css' %}">
+</head>
+<body>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Guardar</button>
+        <button type="button" onclick="window.location.href='/'" class="btn-azul">Volver al inicio</button>
+    </form>
+</body>
+</html>

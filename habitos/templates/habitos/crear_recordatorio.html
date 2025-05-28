@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h2 class="titulo-centrado">Nuevo Recordatorio</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <div class="d-flex justify-content-between">
+            <button type="submit" class="btn btn-primary">Guardar Recordatorio</button>
+            <a href="{% url 'ver_recordatorio' habito.id %}" class="btn btn-secondary">Cancelar</a>
+        </div>
+    </form>
+
+{% endblock %}

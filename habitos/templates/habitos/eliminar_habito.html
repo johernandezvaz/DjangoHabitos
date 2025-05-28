@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-4">
+    <h2 class="titulo-centrado">¿Eliminar Hábito?</h2>
+    <p class="titulo-centrado">¿Estás seguro de que deseas eliminar el hábito <strong>{{ habito.nombre }}</strong>?</p>
+    
+    <form method="post">
+    {% csrf_token %}
+    <div class="d-flex justify-content-between">
+        <button type="submit" class="btn btn-danger">Sí, eliminar</button>
+        <a href="{% url 'lista_habitos' %}" class="btn btn-secondary d-flex justify-content-end">Cancelar</a>
+    </div>
+</form>
+
+</div>
+{% endblock %}

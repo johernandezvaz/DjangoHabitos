@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block title %}Contraseña cambiada{% endblock %}
+
+{% block content %}
+<div class="container mt-4 text-center">
+    <h2 class="mb-3">¡Contraseña actualizada!</h2>
+    <p>Tu contraseña ha sido cambiada exitosamente.</p>
+    <a href="{% url 'inicio' %}" class="btn btn-success">Volver al inicio</a>
+</div>
+{% endblock %}
